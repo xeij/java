@@ -5,8 +5,9 @@ import java.util.*;
 public class DataStructures { 
     public static void main(String[] args) throws Exception {
 
-        textAnimation();
-
+        //textAnimation();
+        Stack<Integer> stack = new Stack<Integer>();
+        stack_push(stack);
     }
 
     
@@ -251,6 +252,15 @@ public class DataStructures {
             System.out.println();
             sc.close();
         }
+    }
+
+    public static void stack_push(Stack<Integer> stack)
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            stack.push(i);
+        }
+        System.out.println(stack);
     }
 
 }

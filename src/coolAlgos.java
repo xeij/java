@@ -5,7 +5,7 @@ public class coolAlgos {
 
         // fizzBuzz();
         // ListMethod();
-        MortgageCalculator();
+        //MortgageCalculator();
 
     }
 
@@ -52,7 +52,7 @@ public class coolAlgos {
 
         // int loanBalance =
 
-        // Remaining balance equation : B = L[(1+c)^n - (1+c)^p] / [(1+c)^n - 1]
+        // Remaining balance equation : B = L[(1+c)^n - (1+c)^p] / [(1+c)^n - 1];
 
         // L = loan ammount
         // c = monthly interest
