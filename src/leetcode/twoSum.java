@@ -4,12 +4,6 @@ public class twoSum {
     
     public static void main(String[] args) throws Exception {
 
-    int[] array = {4,5,2};
-    int target = 7;
-
-    int[] answer = twoSum(array,target);
-    System.out.println(answer);
-
     }
 
     public static int[] twoSum(int[] data, int target){
