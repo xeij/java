@@ -5,6 +5,8 @@ import java.util.*;
 public class DataStructures { 
     public static void main(String[] args) throws Exception {
 
+        textAnimation();
+
     }
 
     
@@ -13,12 +15,9 @@ public class DataStructures {
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_RED = "\u001B[31m";
 
-
-    
-
     public static void textAnimation() throws InterruptedException {
 
-        String string = ANSI_RED + "Welcome to Valorant competitive gameplay, play 10 matches to earn your rank..."
+        String string = ANSI_GREEN + "Welcome to Valorant competitive gameplay, play 10 matches to earn your rank..."
                 + ANSI_RESET;
 
         for (int i = 0; i < string.length(); i++) {
