@@ -11,8 +11,9 @@ import java.text.MessageFormat;
     private int top;
     public static void main(String[] args) throws Exception {
 
-    Stack stackk = new Stack();
-    stackk.pushh(3);
+    Stack stack = new Stack();
+    stack.push(3);
+    System.out.println(stack);
 
     }
 
