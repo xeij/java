@@ -4,13 +4,6 @@ import java.io.File;
 import java.util.*;
 
 public class DataStructures { 
-    public static void main(String[] args) throws Exception {
-
-        //textAnimation();
-        Stack<Integer> stack = new Stack<Integer>();
-        stack_push(stack);
-    }
-
     
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -262,6 +255,29 @@ public class DataStructures {
             stack.push(i);
         }
         System.out.println(stack);
+    }
+
+    public static void pushToLinkedList(LinkedList list){
+
+        Scanner scanner = new Scanner(System.in);
+        for(int i=0;i<5;i++){
+            String data = scanner.next();
+            int number = Integer.parseInt(data);
+            list.add(number);
+        }
+
+        System.out.println(list);
+
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        //textAnimation();
+        //Stack<Integer> stack = new Stack<Integer>();
+        //stack_push(stack);
+
+        LinkedList list = new LinkedList<>();
+        pushToLinkedList(list);
     }
 
 }
