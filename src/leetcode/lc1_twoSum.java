@@ -1,5 +1,6 @@
 package leetcode;
 import java.util.*;
+
 public class lc1_twoSum {
     
     public static void main(String[] args) throws Exception {
