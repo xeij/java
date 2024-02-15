@@ -257,7 +257,7 @@ public class DataStructures {
         System.out.println(stack);
     }
 
-    public static void pushToLinkedList(LinkedList list){
+    public static void pushToLinkedList(LinkedList<Integer> list){
 
         Scanner scanner = new Scanner(System.in);
         for(int i=0;i<5;i++){
@@ -268,9 +268,17 @@ public class DataStructures {
 
         System.out.println(list);
 
-        while(){
-            
+        for (int i = 0; i < list.size() - 1; i++) {
+            for (int j = 0; j < list.size() - i - 1; j++) {
+                if (list.get(j) > list.get(j + 1)) {
+                    int temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
+                }
+            }
         }
+
+        System.out.println(list);
     }
 
     public static void main(String[] args) throws Exception {
@@ -279,7 +287,7 @@ public class DataStructures {
         //Stack<Integer> stack = new Stack<Integer>();
         //stack_push(stack);
 
-        LinkedList list = new LinkedList<>();
+        LinkedList<Integer> list = new LinkedList<Integer>();
         pushToLinkedList(list);
     }
 
