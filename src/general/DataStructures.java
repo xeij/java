@@ -268,6 +268,9 @@ public class DataStructures {
 
         System.out.println(list);
 
+        while(){
+            
+        }
     }
 
     public static void main(String[] args) throws Exception {
