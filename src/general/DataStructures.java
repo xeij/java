@@ -257,7 +257,7 @@ public class DataStructures {
         System.out.println(stack);
     }
 
-    public static void pushToLinkedList(LinkedList<Integer> list){
+    public static void pushThenSort(LinkedList<Integer> list){
 
         Scanner scanner = new Scanner(System.in);
         for(int i=0;i<5;i++){

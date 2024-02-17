@@ -6,7 +6,7 @@ public class lc1_twoSum {
     public static void main(String[] args) throws Exception {
 
     }
-
+    
     public static int[] twoSum(int[] data, int target){
 
         Map<Integer, Integer> hash = new HashMap<Integer,Integer>();
@@ -14,7 +14,7 @@ public class lc1_twoSum {
             int completion = target - data[i];
                 if(hash.containsKey(completion)){
                     return new int[] {hash.get(completion), i};
-                }
+            }       
 
                 hash.put(data[i], i);
             }
