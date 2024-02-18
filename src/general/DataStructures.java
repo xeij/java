@@ -299,12 +299,17 @@ public class DataStructures {
         return frequencyMap;
     }
 
-     /*for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+     /*
+     
+        // Call the method to count frequency
+        Map<Integer, Integer> frequencyMap = countFrequency(array);
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
             System.out.println("Element: " + entry.getKey() + ", Frequency: " + entry.getValue());
         }
+   
         */
 
-        
     public static void main(String[] args) throws Exception {
 
         //textAnimation();
