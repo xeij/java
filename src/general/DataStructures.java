@@ -299,6 +299,12 @@ public class DataStructures {
         return frequencyMap;
     }
 
+     /*for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println("Element: " + entry.getKey() + ", Frequency: " + entry.getValue());
+        }
+        */
+
+        
     public static void main(String[] args) throws Exception {
 
         //textAnimation();
