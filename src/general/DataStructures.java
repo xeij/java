@@ -281,6 +281,24 @@ public class DataStructures {
         System.out.println(list);
     }
 
+
+    public static Map<Integer, Integer> countFrequency(int[] array) {
+
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        
+        for (int i = 0; i < array.length; i++) {
+            if (frequencyMap.containsKey(array[i])) {
+
+                frequencyMap.put(array[i], frequencyMap.get(array[i]) + 1);
+            } else {
+
+                frequencyMap.put(array[i], 1);
+            }
+        }
+        
+        return frequencyMap;
+    }
+
     public static void main(String[] args) throws Exception {
 
         //textAnimation();
