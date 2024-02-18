@@ -310,6 +310,46 @@ public class DataStructures {
    
         */
 
+        public static void findPairClosestToZero(int[] arr) {
+        
+            if (arr == null || arr.length < 2) {
+            System.out.println("Array needs to have at least two elements.");
+            return;
+        }
+        
+        Arrays.sort(arr);
+        
+        int left = 0;
+        int right = arr.length - 1;
+        
+        int closestSum = Integer.MAX_VALUE;
+        int closestPairLeft = left;
+        int closestPairRight = right;
+        
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+            
+            if (Math.abs(sum) < Math.abs(closestSum)) {
+                closestSum = sum;
+                closestPairLeft = left;
+                closestPairRight = right;
+            }
+            
+            if (sum < 0) {
+                left++;
+            } else if (sum > 0) {
+                right--;
+            } else {
+                
+                break;
+            }
+        }
+        
+        System.out.println("The pair whose sum is closest to zero is: (" 
+                            + arr[closestPairLeft] + ", " + arr[closestPairRight] + ")");
+    }
+
+
     public static void main(String[] args) throws Exception {
 
         //textAnimation();
