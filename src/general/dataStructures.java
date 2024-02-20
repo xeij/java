@@ -3,7 +3,7 @@ package general;
 import java.io.File;
 import java.util.*;
 
-public class DataStructures { 
+public class dataStructures { 
     
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";

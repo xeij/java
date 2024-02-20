@@ -1,7 +1,7 @@
 //Shaya Arya
 import java.io.*;
 
-public class LinkedList {
+public class linkedList {
     
     Node head;
 
@@ -15,7 +15,7 @@ public class LinkedList {
     }
 
 
-    public static LinkedList insert(LinkedList list, int data){
+    public static linkedList insert(linkedList list, int data){
 
         Node newNode = new Node(data);
         if (list.head == null) {
@@ -33,7 +33,7 @@ public class LinkedList {
         return list;
     }
 
-    public static void printList(LinkedList list){
+    public static void printList(linkedList list){
 
         Node current = list.head;
         System.out.println("LinkedList: ");
@@ -47,7 +47,7 @@ public class LinkedList {
 
     public static void main(String[] args){
 
-        LinkedList list = new LinkedList();
+        linkedList list = new linkedList();
 
         list = insert(list, 1);
         list = insert(list, 2);
