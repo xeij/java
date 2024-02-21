@@ -1,3 +1,5 @@
+//Shaya Arya
+
 package general;
 
 import java.io.File;
@@ -357,7 +359,7 @@ public class dataStructures {
         //stack_push(stack);
 
         LinkedList<Integer> list = new LinkedList<Integer>();
-        pushToLinkedList(list);
+        pushThenSort(list);
     }
 
 }
