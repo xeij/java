@@ -1,8 +1,5 @@
 //Shaya Arya
-
 package metro;
-import java.util.*;
-
 public class BinarySearchTree {    
     public static void main(String[] args) {    
         BinarySearchTree bt = new BinarySearchTree();    

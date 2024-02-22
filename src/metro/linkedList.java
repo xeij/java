@@ -1,6 +1,5 @@
 //Shaya Arya
-import java.io.*;
-
+package metro;
 public class linkedList {
     
     Node head;
@@ -13,7 +12,6 @@ public class linkedList {
             next = null;
         }
     }
-
 
     public static linkedList insert(linkedList list, int data){
 

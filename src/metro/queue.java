@@ -1,9 +1,7 @@
 //Shaya Arya
-
 package metro;
-import java.util.*;
 
-public class MyQueue<T> {
+public class queue<T> {
     private Node<T> head; 
     private Node<T> tail; 
     private int size; 
@@ -17,7 +15,7 @@ public class MyQueue<T> {
         }
     }
 
-    public MyQueue() {
+    public queue() {
         head = tail = null;
         size = 0;
     }
@@ -62,7 +60,7 @@ public class MyQueue<T> {
     }
 
     public static void main(String[] args) {
-        MyQueue<Integer> queue = new MyQueue<>();
+        queue<Integer> queue = new queue<>();
 
         queue.enqueue(1);
         queue.enqueue(2);
