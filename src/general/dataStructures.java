@@ -351,7 +351,6 @@ public class dataStructures {
                             + arr[closestPairLeft] + ", " + arr[closestPairRight] + ")");
     }
 
-
     public static void main(String[] args) throws Exception {
 
         //textAnimation();
@@ -361,5 +360,7 @@ public class dataStructures {
         LinkedList<Integer> list = new LinkedList<Integer>();
         pushThenSort(list);
     }
+
+    
 
 }
