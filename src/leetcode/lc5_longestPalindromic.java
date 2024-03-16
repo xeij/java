@@ -1,5 +1,7 @@
-  package leetcode;
+  //Shaya Arya
   
+  package leetcode;
+
   class Solution {
     public String longestPalindrome(String s) {
         if (s.length() <= 1) {
