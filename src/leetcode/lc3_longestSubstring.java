@@ -1,5 +1,3 @@
-//Shaya Arya
-
 package leetcode;
 import java.util.*;
 

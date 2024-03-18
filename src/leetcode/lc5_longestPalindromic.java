@@ -1,6 +1,4 @@
-  //Shaya Arya
-  
-  package leetcode;
+package leetcode;
 
   class Solution {
     public String longestPalindrome(String s) {
