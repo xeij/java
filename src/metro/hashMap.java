@@ -16,7 +16,6 @@ public class hashMap<K, V> {
     private LinkedList<Entry<K, V>>[] buckets;
     private static final int INITIAL_CAPACITY = 16; 
     
-    // Constructor
     public hashMap() {
         buckets = new LinkedList[INITIAL_CAPACITY];
         for (int i = 0; i < INITIAL_CAPACITY; i++) {
