@@ -1,43 +1,75 @@
 package datas;
 
-public class BinarySearchTree {    
-    public static void main(String[] args) {    
-        BinarySearchTree bt = new BinarySearchTree();    
-        System.out.println("Total number of possible Binary Search Trees with given key: " + bt.numOfBST(5));    
-      }    
-    
-    public static class Node{    
-        int data;    
-        Node left;    
-        Node right;    
-        public Node(int data){    
+public class BinarySearchTree {
+    static class Node {
+        int key;
+        Node left, right;
 
-            this.data = data;    
-            this.left = null;    
-            this.right = null;    
-            }    
-        }    
+        public Node(int item) {
+            key = item;
+            left = right = null;
+        }
+    }
 
-    public Node root;    
-    public BinarySearchTree(){    
-        root = null;    
-    }    
+    Node root;
 
-    public int factorial(int num) {    
-        int fact = 1;    
-        if(num == 0)    
-            return 1;    
-        else {    
-            while(num > 1) {    
-                fact = fact * num;    
-                num--;    
-            }    
-            return fact;    
-        }    
-    }    
+    BinarySearchTree() {
+        root = null;
+    }
 
-    public int numOfBST(int key) {    
-        int catalanNumber = factorial(2 * key)/(factorial(key + 1) * factorial(key));    
-        return catalanNumber;    
-    }    
-}    
+    void insert(int key) {
+        root = insertRecursively(root, key);
+    }
+
+    Node insertRecursively(Node root, int key) {
+        if (root == null) {
+            root = new Node(key);
+            return root;
+        }
+
+        if (key < root.key) {
+            root.left = insertRecursively(root.left, key);
+        } else if (key > root.key) {
+            root.right = insertRecursively(root.right, key);
+        }
+
+        return root;
+    }
+
+    void printTree() {
+        inOrderRecursively(root);
+    }
+
+    void inOrderRecursively(Node root) {
+        if (root != null) {
+            inOrderRecursively(root.left);
+            System.out.print(root.key + " ");
+            inOrderRecursively(root.right);
+        }
+    }
+
+    boolean find(int key) {
+        return findRecursively(root, key);
+    }
+
+    boolean findRecursively(Node root, int key) {
+        if (root == null)
+            return false;
+        if (root.key == key)
+            return true;
+
+            if (root.key < key)
+            return findRecursively(root.right, key);
+
+            return findRecursively(root.left, key);
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree tree = new BinarySearchTree();
+        
+        tree.insert(1);
+        tree.printTree();
+        System.out.println(tree.find(1));
+
+    }
+}
