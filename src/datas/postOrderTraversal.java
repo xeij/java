@@ -28,10 +28,9 @@ public class postOrderTraversal {
     public static void main(String[] args) {
         postOrderTraversal tree = new postOrderTraversal();
         tree.root = new Node(1);
-        tree.root.left = new Node(2);
-        tree.root.right = new Node(3);
-        tree.root.left.left = new Node(4);
-        tree.root.left.right = new Node(5);
+        tree.root.left = new Node(10);
+        tree.root.right = new Node(39);
+        tree.root.left.left = new Node(5);
 
         System.out.println("Postorder traversal of binary tree is ");
         tree.postOrder(tree.root);
