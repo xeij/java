@@ -13,4 +13,20 @@ class Solution {
         for (int i = 0; i < numRows; i++) {
             index = i;
 
-           
+            while (index < n) {
+                answer.append(s.charAt(index));
+                if (i != 0 && i != numRows - 1) {
+                    diagonalDiff = diff-2*i;
+                    secondIndex = index + diagonalDiff;
+                    
+                    if (secondIndex < n) {
+                        answer.append(s.charAt(secondIndex));
+                    }
+                }
+                index += diff;
+            }
+        }
+        
+        return answer.toString();
+    }
+}
