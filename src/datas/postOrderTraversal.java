@@ -1,4 +1,4 @@
-package metro;
+package datas;
 
 public class postOrderTraversal {
     static class Node {

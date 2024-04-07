@@ -1,5 +1,5 @@
 //Shaya Arya
-package metro;
+package datas;
 
 public class queue<T> {
     private Node<T> head; 

@@ -1,5 +1,5 @@
 //Shaya Arya
-package metro;
+package datas;
 public class linkedList {
     
     Node head;

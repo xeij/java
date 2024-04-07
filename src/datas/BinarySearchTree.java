@@ -1,4 +1,4 @@
-package metro;
+package datas;
 
 public class BinarySearchTree {    
     public static void main(String[] args) {    

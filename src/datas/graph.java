@@ -1,4 +1,4 @@
-package metro;
+package datas;
 import java.util.*;
  
 class Edge {
