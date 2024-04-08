@@ -6,10 +6,6 @@ import java.util.*;
 public class coolAlgos {
     public static void main(String[] args) throws Exception {
 
-        // fizzBuzz();
-        // ListMethod();
-        //MortgageCalculator();
-
     }
 
     public static void ListMethod() {
