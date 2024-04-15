@@ -1,5 +1,9 @@
 package datas;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+
 public class BinarySearchTree {
     static class Node {
         int key;
@@ -124,17 +128,68 @@ public class BinarySearchTree {
         return root;
     }
 
+    boolean isBST() {
+        return isBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    boolean isBSTHelper(Node node, int min, int max) {
+        if (node == null) return true;
+        if (node.key <= min || node.key >= max) return false;
+        return isBSTHelper(node.left, min, node.key) && isBSTHelper(node.right, node.key, max);
+    }
+
+    void convertToBST() {
+        ArrayList<Integer> keys = new ArrayList<>();
+        storeInorderKeys(root, keys);
+        Collections.sort(keys);
+        Iterator<Integer> it = keys.iterator();
+        setInorderKeys(root, it);
+    }
+
+    void storeInorderKeys(Node root, ArrayList<Integer> keys) {
+        if (root != null) {
+            storeInorderKeys(root.left, keys);
+            keys.add(root.key);
+            storeInorderKeys(root.right, keys);
+        }
+    }
+
+    void setInorderKeys(Node root, Iterator<Integer> it) {
+        if (root != null) {
+            setInorderKeys(root.left, it);
+            root.key = it.next();
+            setInorderKeys(root.right, it);
+        }
+    }
+
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
-        
-        tree.insert(1);
-        tree.insert(2);
+
+        tree.insert(44);
+        tree.insert(5);
+        tree.insert(28);
+        tree.insert(13);
+        tree.insert(39);
+        tree.insert(6);
+        tree.insert(18);
 
         tree.printTree();
-        System.out.println();
-        
-        tree.remove(2);
-        tree.printTree();
-        System.out.println(tree.find(1));
+        System.out.println("\nIs it a binary search tree? " + tree.isBST());
+
+        BinarySearchTree nonBST = new BinarySearchTree();
+        nonBST.root = new Node(10);
+        nonBST.root.left = new Node(30);
+        nonBST.root.right = new Node(20);
+        nonBST.root.left.left = new Node(5);
+        nonBST.root.left.right = new Node(15);
+
+        System.out.println("\nOriginal non-BST:");
+        nonBST.printTree();
+        System.out.println("\nIs it a binary search tree? " + nonBST.isBST());
+
+        nonBST.convertToBST();
+        System.out.println("\nConverted to BST:");
+        nonBST.printTree();
+        System.out.println("\nIs it now a BST? " + nonBST.isBST());
     }
 }
