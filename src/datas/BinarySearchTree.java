@@ -58,18 +58,83 @@ public class BinarySearchTree {
         if (root.key == key)
             return true;
 
-            if (root.key < key)
+        if (root.key < key)
             return findRecursively(root.right, key);
 
-            return findRecursively(root.left, key);
+        return findRecursively(root.left, key);
+    }
+
+    Node findMin(Node node) {
+        Node current = node;
+        while (current != null && current.left != null) {
+            current = current.left;
+        }
+        return current;
+    }
+
+    Node findMax(Node node) {
+        Node current = node;
+        while (current != null && current.right != null) {
+            current = current.right;
+        }
+        return current;
+    }
+
+    void remove(int key) {
+        root = removeIteratively(root, key);
+    }
+
+    Node removeIteratively(Node root, int key) {
+        Node parent = null;
+        Node current = root;
+        
+        while (current != null && current.key != key) {
+            parent = current;
+            if (key < current.key) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        
+        if (current == null) return root;
+        
+        if (current.left == null || current.right == null) {
+            Node newCurrent;
+            if (current.left == null)
+                newCurrent = current.right;
+            else
+                newCurrent = current.left;
+            
+            if (parent == null) return newCurrent; 
+            
+            if (current == parent.left)
+                parent.left = newCurrent;
+            else
+                parent.right = newCurrent;
+        } else {
+            Node successor = findMin(current.right);
+            
+            int successorKey = successor.key;
+            remove(successorKey);
+            
+            current.key = successorKey;
+        }
+        
+        return root;
     }
 
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
         
         tree.insert(1);
+        tree.insert(2);
+
+        tree.printTree();
+        System.out.println();
+        
+        tree.remove(2);
         tree.printTree();
         System.out.println(tree.find(1));
-
     }
 }
