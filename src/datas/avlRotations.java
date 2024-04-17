@@ -77,7 +77,7 @@ public class avlRotations {
            return AVLTreeRotateRight(tree, node);
         }        
         return node;
-
+         }
         AVLTreeInsert(tree, node) {
          if (tree.root == null) {
             tree.root = node;
@@ -115,5 +115,52 @@ public class avlRotations {
          }
       }
 
+      AVLTreeRemoveNode(tree, node) {
+         if (node == null) {
+            return false;
+         }
+      
+         parent = node.parent;
+              
+         if (node.left != null && node.right != null) {
+            succNode = node.right;
+            while (succNode.left != null) {
+               succNode = succNode.left;
+            }
+      
+            node.key = succNode.key;
+                  
+            AVLTreeRemoveNode(tree, succNode);
+                  
+            return true;
+         }
+      
+         else if (node == tree.root) {
+            if (node.left != null) {
+               tree.root = node.left;
+            }
+            else {
+               tree.root = node.right;
+            }
+            if (tree.root != null) {
+               tree.root.parent = null;
+            }
+            return true;
+         }
+      
+         else if (node.left != null) {
+            AVLTreeReplaceChild(parent, node, node.left);
+         }
+         else {
+            AVLTreeReplaceChild(parent, node, node.right);
+         }
+      
+         node = parent;
+         while (node != null) {
+            AVLTreeRebalance(tree, node)            ;
+            node = node.parent;
+         }
+         return true;
+      }
 
 }
