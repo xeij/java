@@ -119,7 +119,6 @@ public class avlRotations {
          if (node == null) {
             return false;
          }
-      
          parent = node.parent;
               
          if (node.left != null && node.right != null) {
@@ -129,9 +128,7 @@ public class avlRotations {
             }
       
             node.key = succNode.key;
-                  
             AVLTreeRemoveNode(tree, succNode);
-                  
             return true;
          }
       
@@ -157,7 +154,7 @@ public class avlRotations {
       
          node = parent;
          while (node != null) {
-            AVLTreeRebalance(tree, node)            ;
+            AVLTreeRebalance(tree, node);
             node = node.parent;
          }
          return true;
