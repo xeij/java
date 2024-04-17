@@ -9,7 +9,7 @@ public class avlRotations {
         rightHeight = -1
         if (node.right != null)
            rightHeight = node.right.height;
-        node.height = max(leftHeight, rightHeight) + 1
+        node.height = max(leftHeight, rightHeight) + 1;
      }
      
      
@@ -24,7 +24,7 @@ public class avlRotations {
         if (child != null)
            child.parent = parent;
      
-        AVLTreeUpdateHeight(parent)
+        AVLTreeUpdateHeight(parent);
         return true;
      }
      
@@ -60,5 +60,5 @@ public class avlRotations {
         AVLTreeSetChild(node, "left", leftRightChild);
      }
 
-
+    
 }
