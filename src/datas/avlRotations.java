@@ -63,20 +63,57 @@ public class avlRotations {
      AVLTreeRebalance(tree, node) {
         AVLTreeUpdateHeight(node);
         if (AVLTreeGetBalance(node) == -2) {
-           if (AVLTreeGetBalance(node⇢right) == 1) {
+           if (AVLTreeGetBalance(node.right) == 1) {
               
-              AVLTreeRotateRight(tree, node⇢right);
+              AVLTreeRotateRight(tree, node.right);
            }
            return AVLTreeRotateLeft(tree, node);
         }
         else if (AVLTreeGetBalance(node) == 2) {
-           if (AVLTreeGetBalance(node⇢left) == -1) {
+           if (AVLTreeGetBalance(node.left) == -1) {
               
-              AVLTreeRotateLeft(tree, node⇢left);
+              AVLTreeRotateLeft(tree, node.left);
            }
            return AVLTreeRotateRight(tree, node);
         }        
         return node;
 
-    
+        AVLTreeInsert(tree, node) {
+         if (tree.root == null) {
+            tree.root = node;
+            node.parent = null;
+            return;
+         }
+      
+         cur = tree.root;
+         while (cur != null) {
+            if (node.key < cur.key) {
+               if (cur.left == null) {
+                  cur.left = node;
+                  node.parent = cur;
+                  cur = null;
+               }
+               else {
+                  cur = cur.left;
+               }
+            }
+            else {
+               if (cur.right == null) {
+                  cur.right = node;
+                  node.parent = cur;
+                  cur = null;
+               }
+               else
+                  cur = cur.right;
+            }
+         }
+      
+         node = node.parent;
+         while (node != null) {
+            AVLTreeRebalance(tree, node);
+            node = node.parent;
+         }
+      }
+
+
 }
