@@ -3,10 +3,10 @@ package datas;
 public class avlRotations {
     
     AVLTreeUpdateHeight(node) {
-        leftHeight = -1
+        leftHeight = -1;
         if (node.left != null)
            leftHeight = node.left.height;
-        rightHeight = -1
+        rightHeight = -1;
         if (node.right != null)
            rightHeight = node.right.height;
         node.height = max(leftHeight, rightHeight) + 1;
@@ -59,6 +59,24 @@ public class avlRotations {
         AVLTreeSetChild(node.left, "right", node);
         AVLTreeSetChild(node, "left", leftRightChild);
      }
+
+     AVLTreeRebalance(tree, node) {
+        AVLTreeUpdateHeight(node);
+        if (AVLTreeGetBalance(node) == -2) {
+           if (AVLTreeGetBalance(node⇢right) == 1) {
+              
+              AVLTreeRotateRight(tree, node⇢right);
+           }
+           return AVLTreeRotateLeft(tree, node);
+        }
+        else if (AVLTreeGetBalance(node) == 2) {
+           if (AVLTreeGetBalance(node⇢left) == -1) {
+              
+              AVLTreeRotateLeft(tree, node⇢left);
+           }
+           return AVLTreeRotateRight(tree, node);
+        }        
+        return node;
 
     
 }
