@@ -48,5 +48,17 @@ public class avlRotations {
         return leftHeight - rightHeight
      }
 
+     AVLTreeRotateRight(tree, node) {
+        leftRightChild = node⇢left⇢right
+        if (node⇢parent != null)
+           AVLTreeReplaceChild(node⇢parent, node, node⇢left)
+        else { 
+           tree⇢root = node⇢left
+           tree⇢root⇢parent = null
+        }
+        AVLTreeSetChild(node⇢left, "right", node)
+        AVLTreeSetChild(node, "left", leftRightChild)
+     }
+
 
 }
