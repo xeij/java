@@ -59,9 +59,6 @@ public class dataStructures {
 
     public static void reverse(char[] s) {
 
-        // Reverse an array of Char's by using String to String.toCharArray
-        // using pointahhhs
-
         int a_pointahhh = 0;
         int b_pointahhh = s.length - 1;
 
