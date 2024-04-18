@@ -1,66 +1,78 @@
 package datas;
 
 public class avlRotations {
-    
-    AVLTreeUpdateHeight(node) {
-        leftHeight = -1;
-        if (node.left != null)
-           leftHeight = node.left.height;
-        rightHeight = -1;
-        if (node.right != null)
-           rightHeight = node.right.height;
-        node.height = max(leftHeight, rightHeight) + 1;
-     }
-     
-     
-     AVLTreeSetChild(parent, whichChild, child) {
-        if (whichChild != "left" && whichChild != "right")
-           return false;
-     
-        if (whichChild == "left")
-           parent.left = child;
-        else
-           parent.right = child;
-        if (child != null)
-           child.parent = parent;
-     
-        AVLTreeUpdateHeight(parent);
-        return true;
-     }
-     
-     
-     AVLTreeReplaceChild(parent, currentChild, newChild) {
-        if (parent.left == currentChild)
-           return AVLTreeSetChild(parent, "left", newChild);
-        else if (parent.right == currentChild)
-           return AVLTreeSetChild(parent, "right", newChild);
-        return false;
-     }
-     
-     
-     AVLTreeGetBalance(node) {
-        leftHeight = -1
-        if (node.left != null)
-           leftHeight = node.left.height;
-        rightHeight = -1;
-        if (node.right != null)
-           rightHeight = node.right.height;
-        return leftHeight - rightHeight;
-     }
 
-     AVLTreeRotateRight(tree, node) {
-        leftRightChild = node.left.right;
-        if (node.parent != null)
-           AVLTreeReplaceChild(node.parent, node, node.left);
-        else { 
-           tree.root = node.left;
-           tree.root.parent = null;
+    private class Node {
+        int key;
+        int height;
+        Node left;
+        Node right;
+        Node parent; 
+
+        Node(int key) {
+            this.key = key;
+            this.height = 1;
         }
-        AVLTreeSetChild(node.left, "right", node);
-        AVLTreeSetChild(node, "left", leftRightChild);
-     }
+    }
 
-     AVLTreeRebalance(tree, node) {
+    private Node root;
+
+    private void updateHeight(Node node) {
+        int leftHeight = -1;
+        if (node.left != null)
+            leftHeight = node.left.height;
+        int rightHeight = -1;
+        if (node.right != null)
+            rightHeight = node.right.height;
+        node.height = Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    private boolean setChild(Node parent, String whichChild, Node child) {
+        if (!whichChild.equals("left") && !whichChild.equals("right"))
+            return false;
+
+        if (whichChild.equals("left"))
+            parent.left = child;
+        else
+            parent.right = child;
+        if (child != null)
+            child.parent = parent;
+
+        updateHeight(parent);
+        return true;
+    }
+
+    private boolean replaceChild(Node parent, Node currentChild, Node newChild) {
+        if (parent.left == currentChild)
+            return setChild(parent, "left", newChild);
+        else if (parent.right == currentChild)
+            return setChild(parent, "right", newChild);
+        return false;
+    }
+
+    private int getBalance(Node node) {
+        int leftHeight = -1;
+        if (node.left != null)
+            leftHeight = node.left.height;
+        int rightHeight = -1;
+        if (node.right != null)
+            rightHeight = node.right.height;
+        return leftHeight - rightHeight;
+    }
+
+    private void rotateRight(Node node) {
+        Node leftRightChild = node.left.right;
+        if (node.parent != null)
+            replaceChild(node.parent, node, node.left);
+        else {
+            root = node.left;
+            root.parent = null;
+        }
+        setChild(node.left, "right", node);
+        setChild(node, "left", leftRightChild);
+    }
+
+     AVLTreeRebalance(tree, node){
         AVLTreeUpdateHeight(node);
         if (AVLTreeGetBalance(node) == -2) {
            if (AVLTreeGetBalance(node.right) == 1) {
@@ -77,7 +89,8 @@ public class avlRotations {
            return AVLTreeRotateRight(tree, node);
         }        
         return node;
-         }
+      }
+
         AVLTreeInsert(tree, node) {
          if (tree.root == null) {
             tree.root = node;
@@ -160,4 +173,6 @@ public class avlRotations {
          return true;
       }
 
+      public static void main(String[] args) {
+      }
 }
