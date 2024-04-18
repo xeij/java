@@ -72,107 +72,112 @@ public class avlRotations {
         setChild(node, "left", leftRightChild);
     }
 
-     AVLTreeRebalance(tree, node){
-        AVLTreeUpdateHeight(node);
-        if (AVLTreeGetBalance(node) == -2) {
-           if (AVLTreeGetBalance(node.right) == 1) {
-              
-              AVLTreeRotateRight(tree, node.right);
-           }
-           return AVLTreeRotateLeft(tree, node);
-        }
-        else if (AVLTreeGetBalance(node) == 2) {
-           if (AVLTreeGetBalance(node.left) == -1) {
-              
-              AVLTreeRotateLeft(tree, node.left);
-           }
-           return AVLTreeRotateRight(tree, node);
-        }        
-        return node;
+    private void rotateLeft(Node node) {
+      Node rightLeftChild = node.right.left;
+      if (node.parent != null)
+          replaceChild(node.parent, node, node.right);
+      else {
+          root = node.right;
+          root.parent = null;
       }
+      setChild(node.right, "left", node);
+      setChild(node, "right", rightLeftChild);
+  }
 
-        AVLTreeInsert(tree, node) {
-         if (tree.root == null) {
-            tree.root = node;
-            node.parent = null;
-            return;
-         }
-      
-         cur = tree.root;
-         while (cur != null) {
-            if (node.key < cur.key) {
-               if (cur.left == null) {
-                  cur.left = node;
-                  node.parent = cur;
-                  cur = null;
-               }
-               else {
-                  cur = cur.left;
-               }
-            }
-            else {
-               if (cur.right == null) {
-                  cur.right = node;
-                  node.parent = cur;
-                  cur = null;
-               }
-               else
-                  cur = cur.right;
-            }
-         }
-      
-         node = node.parent;
-         while (node != null) {
-            AVLTreeRebalance(tree, node);
-            node = node.parent;
-         }
-      }
+  private Node rebalance(Node node) {
+      updateHeight(node);
+      int balance = getBalance(node);
 
-      AVLTreeRemoveNode(tree, node) {
-         if (node == null) {
-            return false;
-         }
-         parent = node.parent;
-              
-         if (node.left != null && node.right != null) {
-            succNode = node.right;
-            while (succNode.left != null) {
-               succNode = succNode.left;
-            }
-      
-            node.key = succNode.key;
-            AVLTreeRemoveNode(tree, succNode);
-            return true;
-         }
-      
-         else if (node == tree.root) {
-            if (node.left != null) {
-               tree.root = node.left;
-            }
-            else {
-               tree.root = node.right;
-            }
-            if (tree.root != null) {
-               tree.root.parent = null;
-            }
-            return true;
-         }
-      
-         else if (node.left != null) {
-            AVLTreeReplaceChild(parent, node, node.left);
-         }
-         else {
-            AVLTreeReplaceChild(parent, node, node.right);
-         }
-      
-         node = parent;
-         while (node != null) {
-            AVLTreeRebalance(tree, node);
-            node = node.parent;
-         }
-         return true;
+      if (balance == -2) { 
+          if (getBalance(node.right) == 1) { 
+              rotateRight(node.right);
+          }
+          rotateLeft(node); 
+      } else if (balance == 2) { 
+          if (getBalance(node.left) == -1) { 
+              rotateLeft(node.left);
+          }
+          rotateRight(node); 
       }
+      return node;
+  }
 
-      public static void main(String[] args) {
+  public void insert(int key) {
+      Node newNode = new Node(key);
+      if (root == null) {
+          root = newNode;
+      } else {
+          Node current = root;
+          while (true) {
+              if (key < current.key) {
+                  if (current.left == null) {
+                      current.left = newNode;
+                      newNode.parent = current;
+                      break;
+                  }
+                  current = current.left;
+              } else if (key > current.key) {
+                  if (current.right == null) {
+                      current.right = newNode;
+                      newNode.parent = current;
+                      break;
+                  }
+                  current = current.right;
+              } else {
+                  return;
+              }
+          }
+          current = newNode.parent;
+          while (current != null) {
+              rebalance(current);
+              current = current.parent;
+          }
       }
+  }
+
+  public void remove(int key) {
+   root = remove(root, key);
+}
+
+   private Node remove(Node node, int key) {
+      if (node == null) {
+         return null;
+      }
+      if (key < node.key) {
+         node.left = remove(node.left, key);
+      } else if (key > node.key) {
+         node.right = remove(node.right, key);
+      } else {
+         if (node.left == null || node.right == null) {
+            Node temp = (node.left != null) ? node.left : node.right;
+            if (temp == null) {
+                  temp = node;
+                  node = null;
+            } else {
+                  node = temp;
+            }
+         } else {
+            Node temp = minValueNode(node.right);
+            node.key = temp.key;
+            node.right = remove(node.right, temp.key);
+         }
+      }
+      if (node == null) return node;
+      return rebalance(node);
+   }
+
+   private Node minValueNode(Node node) {
+      Node current = node;
+      while (current.left != null) {
+         current = current.left;
+      }
+      return current;
+   }
+
+  public static void main(String[] args) {
+      avlRotations tree = new avlRotations();
+      tree.insert(10);
+      tree.insert(20);
+     
+  }
 }
