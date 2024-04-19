@@ -53,6 +53,6 @@ class Main{
                    new Edge(3, 2, 3), new Edge(4, 5, 1),new Edge(5, 4, 3));
  
         graph graph = new graph(edges);
-        graph.printgraph(graph);
+        datas.graph.printgraph(graph);
     }
 }
