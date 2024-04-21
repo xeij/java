@@ -72,7 +72,6 @@ public class avl {
     private Node balance(Node node) {
         int balance = getBalance(node);
 
-        // Left Left Case
         if (balance > 1 && getBalance(node.left) >= 0)
             return rotateRight(node);
 
