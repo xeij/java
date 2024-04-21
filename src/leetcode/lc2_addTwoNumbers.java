@@ -1,5 +1,4 @@
 package leetcode;
-import java.util.*;
 
 public class lc2_addTwoNumbers {
    

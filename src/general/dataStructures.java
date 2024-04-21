@@ -258,6 +258,7 @@ public class dataStructures {
 
     public static void pushThenSort(LinkedList<Integer> list){
 
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         for(int i=0;i<5;i++){
             String data = scanner.next();
