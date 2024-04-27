@@ -1,3 +1,5 @@
+package datas;
+
 import java.util.*;
 
 public class Huffman {
