@@ -1,12 +1,12 @@
 package datas;
 import java.util.Arrays;
 
-public class PriorityQueue {
+public class priorityQueue {
     private static final int INITIAL_CAPACITY = 50;
     private int[] heap;
     private int size;
 
-    public PriorityQueue() {
+    public priorityQueue() {
         heap = new int[INITIAL_CAPACITY];
         size = -1;
     }
@@ -100,7 +100,7 @@ public class PriorityQueue {
     }
 
     public static void main(String[] args) {
-        PriorityQueue pq = new PriorityQueue();
+        priorityQueue pq = new priorityQueue();
 
         pq.enqueue(45);
         pq.enqueue(20);
