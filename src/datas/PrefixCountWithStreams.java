@@ -1,4 +1,4 @@
-package datas.Trie;
+package datas;
 import java.util.Arrays;
 import java.util.List;
 
