@@ -1,4 +1,4 @@
-package datas.src;
+package datas.test;
 //package com.example;
 
 import org.junit.jupiter.api.Test;

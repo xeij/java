@@ -1,6 +1,9 @@
-package datas.src;
+package datas.test;
 
 import org.junit.jupiter.api.Assertions.*;
+
+import datas.src.Trie;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
