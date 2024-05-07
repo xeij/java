@@ -1,4 +1,4 @@
-package datas.Trie;
+package datas.src;
 
 class TrieNode {
     TrieNode[] children = new TrieNode[26]; 

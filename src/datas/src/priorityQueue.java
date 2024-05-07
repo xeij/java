@@ -1,4 +1,4 @@
-package datas;
+package datas.src;
 import java.util.Arrays;
 
 public class priorityQueue {

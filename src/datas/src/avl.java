@@ -1,4 +1,4 @@
-package datas;
+package datas.src;
 
 public class avl {
     private class Node {

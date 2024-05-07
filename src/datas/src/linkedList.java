@@ -1,5 +1,5 @@
 //Shaya Arya
-package datas;
+package datas.src;
 public class linkedList {
     
     Node head;

@@ -1,4 +1,4 @@
-package datas;
+package datas.src;
 class Node {
     
     int val;

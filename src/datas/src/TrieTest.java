@@ -1,4 +1,4 @@
-package datas.Trie;
+package datas.src;
 
 import org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;

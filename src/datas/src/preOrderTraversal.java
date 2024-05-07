@@ -1,6 +1,6 @@
-package datas;
+package datas.src;
 
-public class postOrderTraversal {
+public class preOrderTraversal {
     static class Node {
         int key;
         Node left, right;
@@ -13,26 +13,27 @@ public class postOrderTraversal {
 
     Node root;
 
-    postOrderTraversal() {
+    preOrderTraversal() {
         root = null;
     }
 
-    void postOrder(Node node) {
+    void preOrder(Node node) {
         if (node == null)
             return;
-        postOrder(node.left);
-        postOrder(node.right);
+
         System.out.print(node.key + " "); 
+        preOrder(node.left);
+        preOrder(node.right); 
     }
 
     public static void main(String[] args) {
-        postOrderTraversal tree = new postOrderTraversal();
+        preOrderTraversal tree = new preOrderTraversal();
         tree.root = new Node(1);
         tree.root.left = new Node(10);
         tree.root.right = new Node(39);
         tree.root.left.left = new Node(5);
 
-        System.out.println("Postorder traversal of binary tree is ");
-        tree.postOrder(tree.root);
+        System.out.println("Preorder traversal of binary tree is ");
+        tree.preOrder(tree.root);
     }
 }

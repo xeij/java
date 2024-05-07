@@ -1,5 +1,5 @@
 //Shaya Arya
-package datas;
+package datas.src;
 import java.util.LinkedList;
 
 public class hashMap<K, V> {

@@ -1,5 +1,5 @@
 //Shaya Arya
-package datas;
+package datas.src;
 
 class Stack {
 
