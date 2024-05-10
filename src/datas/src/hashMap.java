@@ -1,4 +1,3 @@
-//Shaya Arya
 package datas.src;
 import java.util.LinkedList;
 
