@@ -140,7 +140,7 @@ public class MainApplication extends Application {
         outputVBox.getChildren().add(avlHeightLabel);
         avlTreeView = new AVLTreeView(avlTree);
         root.setTop(avlTreeView);
-        root.setCenter(outputVBox);                 // CHANGED TREE TO INSERT AT TOP SO IT LOOKS BETTER
+        root.setCenter(outputVBox);                 
         root.setBottom(inputHBox);
 
         return new Scene(root, 800,600);
@@ -149,7 +149,7 @@ public class MainApplication extends Application {
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(10));
 
-        Button goBack = new Button("Go Back"); // added back button
+        Button goBack = new Button("Go Back"); 
         goBack.setBackground(Background.fill(Color.LAWNGREEN));
         goBack.setOnAction(actionEvent -> stageInput.setScene(mainMenu));
 
