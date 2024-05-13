@@ -33,3 +33,24 @@ public class SkipList<T extends Comparable<? super T>> {
         }
     }
 
+    public void displayList() {
+        System.out.println("Skip List:");
+        for (int i = maxLevel; i >= 0; i--) {
+            System.out.print("L" + i + ": ");
+            SkipNode<T> node = head.forward[i];
+            while (node != null) {
+                System.out.print(node.value + " ");
+                node = node.forward[i];
+            }
+            System.out.println();
+        }
+    }
+
+    private int randomLevel() {
+        int lvl = 0;
+        while (lvl < maxLevel && random.nextDouble() < 0.5) {
+            lvl++;
+        }
+        return lvl;
+    }
+}
