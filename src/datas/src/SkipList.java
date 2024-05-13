@@ -17,3 +17,19 @@ public class SkipList<T extends Comparable<? super T>> {
         }
     }
 
+    public void insert(T value) {
+        SkipNode<T>[] update = new SkipNode[maxLevel + 1];
+        SkipNode<T> current = head;
+        for (int i = maxLevel; i >= 0; i--) {
+            while (current.forward[i] != null && current.forward[i].value.compareTo(value) < 0) {
+                current = current.forward[i];
+            }
+            update[i] = current;
+        }
+        current = new SkipNode<>(value, randomLevel());
+        for (int i = 0; i <= current.forward.length - 1; i++) {
+            current.forward[i] = update[i].forward[i];
+            update[i].forward[i] = current;
+        }
+    }
+
