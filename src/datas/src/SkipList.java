@@ -18,6 +18,7 @@ public class SkipList<T extends Comparable<? super T>> {
     }
 
     public void insert(T value) {
+        @SuppressWarnings("unchecked")
         SkipNode<T>[] update = new SkipNode[maxLevel + 1];
         SkipNode<T> current = head;
         for (int i = maxLevel; i >= 0; i--) {
