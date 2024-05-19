@@ -18,7 +18,7 @@ public class LinkedListReversal {
         Node next = null;
         
         while (current != null) {
-            next = current.next;  
+		next = current.next;  
             current.next = prev;  
             prev = current;  
             current = next;

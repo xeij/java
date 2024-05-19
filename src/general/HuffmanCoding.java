@@ -1,4 +1,4 @@
-package datas.src;
+package com.example;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -105,3 +105,4 @@ public class HuffmanCoding {
         String decodedText = decode(encodedText);
         System.out.println("Decoded: " + decodedText);
     }
+}
