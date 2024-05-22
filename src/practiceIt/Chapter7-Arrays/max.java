@@ -1,5 +1,5 @@
 public class max {
-    public int max(int array[]){
+    public int maxMethod(int array[]){
         int temp = array[0];
         for(int i=0;i<array.length; i++){
             if(array[i] > temp){
