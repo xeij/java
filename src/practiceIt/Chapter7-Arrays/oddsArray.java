@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class oddsArray{
 
     public static void main(String[] args){
