@@ -1,6 +1,6 @@
 public static int kthLargest(int k, int[] array){
 sort(array);
-int answer = array[array.length - k];
+int answer = array[array.length] - k;
 return answer;
 }
 
@@ -11,7 +11,7 @@ private static void sort(int[] array){
 	while(swapped){
 		swapped = false;
 		j++;
-		for(int i=0; i < array.length-1; i++){
+		for(int i=0; i < array.length; i++){
 				if(array[i] > array[i+1]){
 					temp = array[i];
 					array[i] = array[i+1];
