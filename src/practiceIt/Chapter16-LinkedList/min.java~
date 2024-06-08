@@ -8,6 +8,7 @@ public static int min(){
 	   while(current != null){
 	      if(current.data < min){
 	   	 min = current.data;   
+	      
 	      }
 	   	 current = current.next;
 	   }
