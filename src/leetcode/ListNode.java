@@ -6,7 +6,6 @@ public class ListNode {
     public int val;
 
     public ListNode(int i) {
-        //TODO Auto-generated constructor stub
     }
 
 }
